@@ -26,7 +26,7 @@ ARGS:
 
 -the script use cloudflare DNS server
 
-(https://raw.githubusercontent.com/hazemeldoc/subdomain-brute/master/img/code.svg)
+![code_snippet](https://raw.githubusercontent.com/hazemeldoc/subdomain-brute/master/img/code.svg)
 
 but you could change this to desired DNS server by changing the ip in this code snippet and it should work fine
 
