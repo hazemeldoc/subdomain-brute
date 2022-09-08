@@ -3,6 +3,7 @@
 </a>
 
 # subdomain brutforce in rust ![GitHub last commit](https://img.shields.io/github/last-commit/hazemeldoc/subdomain-brute?style=plastic)
+
 > an active subdomain enum tool based on research on [NOERROR & NODATA](https://www.securesystems.de/blog/enhancing-subdomain-enumeration-ents-and-noerror/)
 a simple multithreaded tool to preform active domain enum unlike other tools this tool doesn't ignore NODATA responses returned from DNS server instead it add them to queue to re-scan them
 
@@ -24,7 +25,9 @@ ARGS:
 ##DNS 
 
 -the script use cloudflare DNS server
+
 (https://raw.githubusercontent.com/hazemeldoc/subdomain-brute/master/img/code.svg)
+
 but you could change this to desired DNS server by changing the ip in this code snippet and it should work fine
 
 ##installation
