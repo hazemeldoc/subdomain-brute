@@ -37,3 +37,6 @@ git clone https://github.com/hazemeldoc/subdomain-brute.git
 cd subdomain-brute
 cargo build
 ```
+
+## sample run
+![RUN](https://github.com/hazemeldoc/subdomain-brute/raw/master/img/github.gif)
