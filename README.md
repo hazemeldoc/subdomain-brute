@@ -7,7 +7,7 @@
 > an active subdomain enum tool based on research on [NOERROR & NODATA](https://www.securesystems.de/blog/enhancing-subdomain-enumeration-ents-and-noerror/)
 a simple multithreaded tool to preform active domain enum unlike other tools this tool doesn't ignore NODATA responses returned from DNS server instead it add them to queue to re-scan them
 
-##usage
+## usage
 
 ```
 USAGE:
@@ -22,7 +22,7 @@ ARGS:
     <target>    The target to scan (e.g:google.com)
 ```
 
-##DNS 
+## DNS 
 
 -the script use cloudflare DNS server
 
@@ -30,7 +30,7 @@ ARGS:
 
 but you could change this to desired DNS server by changing the ip in this code snippet and it should work fine
 
-##installation
+## installation
 ```
 git clone https://github.com/hazemeldoc/subdomain-brute.git
 cd subdomain-brute
