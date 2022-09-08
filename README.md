@@ -9,12 +9,14 @@
 a simple multithreaded tool to preform active domain enumeration, unlike some other tools this tool doesn't ignore NODATA responses returned from DNS server instead it add them to queue to re-scan them
 
 ## ENT
-<img src="https://github.com/hazemeldoc/subdomain-brute/raw/master/img/DNS_hierarchy.png" align="right" height="200"/>
+<img src="https://github.com/hazemeldoc/subdomain-brute/raw/master/img/DNS_hierarchy.png" align="right" width="100" height="200"/>
 also known as empty non-terminals , this response is the result of the following scenario
 -we have a domain called example.com
 -then we decided to add a subdomain called blog.dev.example.com
 -despite not adding a dev.example.com entry it's automatically created
 -in this case dev.exaple.com return NODATA response
+
+
 
 >in order to make out the most of this tool always use -r option which will rescan ENT (if it found dev.example.com (ENT) it will bruteforce it again which will result in finding blog.dev.com 
 
