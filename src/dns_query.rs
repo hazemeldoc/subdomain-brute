@@ -9,9 +9,8 @@ use crate::ENT;
 pub async fn dns_q(mut client: AsyncClient, subdomain: String) {
     // Specify the name, note the final '.' which specifies it's an FQDN
     let name = Name::from_str(&subdomain).unwrap_or(Name::from_str("NULL").unwrap());
-    if name.to_string()== "NULL"
-    {
-        return ;
+    if name.to_string() == "NULL" {
+        return;
     }
     let query = client.query(name, DNSClass::IN, RecordType::A);
     let response = query.await.unwrap();
