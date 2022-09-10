@@ -5,7 +5,7 @@ use trust_dns_client::client::AsyncClient;
 use trust_dns_client::proto::iocompat::AsyncIoTokioAsStd;
 use trust_dns_client::tcp::TcpClientStream;
 
-mod DNS_query;
+mod dns_query;
 mod file_read;
 
 static mut ENT: Vec<String> = vec![];
@@ -72,13 +72,13 @@ async fn main() {
     let (stream, sender) =
         TcpClientStream::<AsyncIoTokioAsStd<TokioTcpStream>>::new(([1, 1, 1, 1], 53).into());
     let client2 = AsyncClient::new(stream, sender, None);
-    let (mut client2, bg2) = client2.await.expect("connection failed");
+    let (client2, bg2) = client2.await.expect("connection failed");
     tokio::spawn(bg2);
 
-    let Q = stream::iter(queue_.clone());
+    let q = stream::iter(queue_.clone());
 
-    Q.for_each_concurrent(concurrency, |subdomain| {
-        DNS_query::DNS_q(client2.clone(), subdomain.to_string())
+    q.for_each_concurrent(concurrency, |subdomain| {
+        dns_query::dns_q(client2.clone(), subdomain.to_string())
     })
     .await;
 
@@ -92,9 +92,9 @@ async fn main() {
                 if param.is_present("recursive") {
                     queue_ = vec![];
                     file_read::read_file_line_by_line(wordlist, &mut queue_, &ent);
-                    let Q = stream::iter(queue_.clone());
-                    Q.for_each_concurrent(concurrency, |subdomain| {
-                        DNS_query::DNS_q(client2.clone(), subdomain.to_string())
+                    let q = stream::iter(queue_.clone());
+                    q.for_each_concurrent(concurrency, |subdomain| {
+                        dns_query::dns_q(client2.clone(), subdomain.to_string())
                     })
                     .await;
                 }
